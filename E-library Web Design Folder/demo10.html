@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f8f8, #e0e0e0);
+            /* Gradient background */
+        }
+
+        header {
+            background: linear-gradient(135deg, #c31432, #240b36);
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .contain a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contain a:hover {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: black;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: black;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: linear-gradient(135deg, #c31432, #240b36);
+            color: white;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction:row; /* Added */
+            padding: 10px 0;
+            background: linear-gradient(135deg, #240b36, #c31432);
+            color: white;
+            margin-bottom: 20px;
+            text-align: center; /* Added */
+        }
+
+        .heading a {
+            margin-bottom: 10px; /* Added */
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            border: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .heading h1{
+          color: white;
+          text-align: center;
+          padding-inline-start: 420px;
+        }
+
+        .heading a:hover {
+            background: linear-gradient(135deg, #c31432, #240b36);
+        }
+
+        /* h1 {
+            margin: 0;
+            padding: 20px 0;
+            color: #c31432;
+        } */
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about h2 {
+            color: #c31432;
+            margin-bottom: 10px;
+        }
+
+        .about p {
+            color: #444;
+            line-height: 1.6;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">INKWELL</div>
+            <div class="contain">
+                <a href="02.new home page css.html">Home</a>
+                <a href="03.book categories css.html">Book Categories</a>
+                <a href="04.contact us css.html">Contact Us</a>
+                <a href="05.About us css.html">About Us</a>
+                <a href="06.sign up css.html">Sign Up</a>
+                <a href="07.login css.html">Log In</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <button>Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="heading">
+        <a href="01.e-library css.html" class="btn">Back to Home</a>
+        <h1>About Us</h1>
+    </div>
+
+    <div class="container">
+        <div class="about">
+            <h2>Our Story</h2>
+            <p>The E-Library exists to fuel your intellectual curiosity and empower you on your journey
+                of discovery. We believe in the transformative power of knowledge and the joy of
+                exploration. That's why we curate a diverse collection of digital resources, from
+                ebooks and audiobooks to other engaging materials, catering to a wide range of
+                interests and learning styles. Our user-friendly platform makes it easy to access
+                these resources anytime, anywhere, fostering lifelong learning for all ages.
+                We strive to be more than just a digital archive; we aim to build a thriving community of learners
+                through online events, discussion groups, and other initiatives. We see ourselves as partners in your
+                intellectual adventure, ready to equip you with the tools and knowledge you need to unlock a world of
+                possibilities. Let us be your guide as you embark on a journey of endless discovery.</p>
+
+            <h2>Our Mission</h2>
+            <p>The E-Library is on a mission to become the cornerstone of your intellectual exploration. We envision
+                a world where everyone has seamless access to a vast ocean of knowledge, fostering curiosity
+                and igniting a passion for lifelong learning. We are dedicated to building a digital haven
+                equipped with a diverse collection of resources – ebooks, audiobooks, and more – that cater
+                to your unique interests and learning styles. Our user-friendly platform empowers you to delve
+                into this treasure trove of information anytime, anywhere. We don't just offer resources;
+                we strive to cultivate a vibrant community of learners through engaging events and
+                discussion groups. By becoming your partner in discovery, we hope to equip you with the
+                tools and knowledge necessary to unlock a world of endless possibilities.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .slider {
+            overflow-x: auto;
+            /* Enable horizontal scrolling if needed */
+            white-space: nowrap;
+            /* Prevent line breaks */
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .slider img {
+            width: 280px;
+            height: 300px;
+            margin: 0 10px;
+            border-radius: 20px;
+            cursor: pointer;
+
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: black;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .book {
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        // Dummy data for demonstration purposes
+        const books = [
+            //horror book data
+            { id: 1, title: "Whispers in the Attic", author: "By:  Violet Graves", category: "Horror" },
+            {id: 2, title: "Echoes from the Deep", author: "By:  Simon Blackwood", category: "Horror" },
+            {id: 2, title: "The Thing in the Woods", author: "By:  Elias Thorne", category: "Horror" },
+            {id: 4, title: "The Haunting of Elm Street", author: "By:  Dr. Evelyn Wright", category: "Horror" },
+            
+            //comedy book data
+            { id: 5, title: "The Purrfect Alibi", author: "By:  Mittens Malone", category: "Comedy" },
+            { id: 6, title: "Office Shenanigans", author: "By:  Stapleton Jones", category: "Comedy" },
+            { id: 7, title: "DIY Fails & Epic Mishaps", author: "By:  Fumblefingers McGee", category: "Comedy" },
+            { id: 8, title: "Petty Crimes & Misbehavin' Minds", author: "By:  Miss Mayhem", category: "Comedy" },
+
+            //stories book data
+            { id: 9, title: "Hunt for the Elven Crown", author: "By:  Mira Song", category: "Stories" },
+            { id: 10, title: "Tales from Neo-Tokyo", author: "By:  Kai Tanaka", category: "Stories" },
+            { id: 11, title: "The Curious Case", author: "By:  Agatha Blake", category: "Stories" },
+            { id: 12, title: "Daughter of the Nile", author: "By:  Nefertiti Khan", category: "Stories" },
+
+            //motivational book data
+            { id: 13, title: "Conquer Your Mountain", author: "By:  Maximus Strong", category: "Motivational" },
+            { id: 14, title: "Growth Mindset", author: "By:  Dr. Amelia Bloom", category: "Motivational" },
+            { id: 15, title: "Create Your Masterpiece", author: "By:  Vincent Bright5", category: "Motivational" },
+            { id: 16, title: "The Power of Teamwork", author: "By:  Synergy Smith", category: "Motivational" },
+        ];
+
+        function searchBooks() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+
+            const filteredBooks = books.filter(book =>
+                book.title.toLowerCase().includes(searchInput) ||
+                book.author.toLowerCase().includes(searchInput) ||
+                book.category.toLowerCase().includes(searchInput)
+            );
+
+            if (filteredBooks.length === 0) {
+                searchResults.innerHTML = "<p>No results found</p>";
+            } else {
+                filteredBooks.forEach(book => {
+                    const bookDiv = document.createElement('div');
+                    bookDiv.classList.add('book');
+                    bookDiv.innerHTML = `
+                        <h2>${book.title}</h2>
+                        <p>Author: ${book.author}</p>
+                        <p>Category: ${book.category}</p>
+                        <a href="category/${book.category.toLowerCase()}.html">View Category</a>
+                    `;
+                    searchResults.appendChild(bookDiv);
+                });
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the E-Library</h1>
+    </header>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by Book Category, Name, or Author">
+        <button onclick="searchBooks()">Search</button>
+    </div>
+    <!-- Slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <img src="homepg1.jpg" alt="Book 1" onclick="redirectToBook('book1')">
+            <img src="homepg2.jpg" alt="Book 2" onclick="redirectToBook('book2')">
+            <img src="homepg3.jpg" alt="Book 3" onclick="redirectToBook('book3')">
+            <img src="homepgstory4.jpg" alt="Book 4" onclick="redirectToBook('book4')">
+            <img src="homepg5.jpg" alt="Book 5" onclick="redirectToBook('book5')">
+
+        </div>
+    </div>
+
+    <div id="searchResults"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

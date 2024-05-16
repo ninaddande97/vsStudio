@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f8f8, #e0e0e0);
+            /* Gradient background */
+        }
+
+        header {
+            background: linear-gradient(135deg, #c31432, #240b36);
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .contain a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contain a:hover {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: black;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: black;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: linear-gradient(135deg, #c31432, #240b36);
+            color: white;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            padding: 10px 0;
+            background: linear-gradient(135deg, #240b36, #c31432);
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .heading a {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            border: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .heading a:hover {
+            background: linear-gradient(135deg, #c31432, #240b36);
+        }
+        .heading h1{
+            text-align: center;
+          padding-inline-start: 420px;
+        }
+        .slider {
+            overflow-x: auto;
+            /* Enable horizontal scrolling if needed */
+            white-space: nowrap;
+            /* Prevent line breaks */
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 0 10%;
+        }
+
+        .slider img {
+            width: 280px;
+            height: 300px;
+            margin: 0 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .slider img:hover {
+            transform: scale(1.05);
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .suggestion-container {
+            position: absolute;
+            z-index:auto;
+            width: 20%;
+            background-color: #0d0b0b;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+
+    <script>
+        function redirectToBook(bookName) {
+            alert("Please login to read the book!");
+            // Implement redirection logic to the detailed page of the respective book
+            window.location.href = "book_details_page.html?book=" + encodeURIComponent(bookName);
+
+            // Add login page link
+            var loginPageLink = "07.login css.html";
+            window.location.href = loginPageLink;
+        }
+
+        function searchBooks() {
+            var searchInput = document.getElementById("searchInput").value.toLowerCase();
+            var books = document.querySelectorAll(".slider img");
+
+            books.forEach(function (book) {
+                var altText = book.alt.toLowerCase();
+                var parent = book.parentElement;
+
+                if (altText.includes(searchInput)) {
+                    parent.style.display = "block";
+                } else {
+                    parent.style.display = "none";
+                }
+            });
+        }
+
+        function showSuggestions() {
+            var suggestionContainer = document.getElementById("suggestionContainer");
+            suggestionContainer.style.display = "block";
+        }
+
+        function hideSuggestions() {
+            var suggestionContainer = document.getElementById("suggestionContainer");
+            suggestionContainer.style.display = "none";
+        }
+
+        function selectSuggestion(suggestion) {
+            document.getElementById("searchInput").value = suggestion;
+            hideSuggestions();
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">INKWELL</div>
+            <div class="contain">
+                <a href="02.new home page css.html">Home</a>
+                <a href="03.book categories css.html">Book
+                    Categories</a>
+                <a href="04.contact us css.html">Contact Us</a></li>
+                <a href="05.About us css.html">About Us</a>
+                <a href="06.sign up css.html">Sign Up</a>
+                <a href="07.login css.html">Log In</a>
+
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search " id="searchInput" onfocus="showSuggestions()" onblur="hideSuggestions()">
+                <button onclick="searchBooks()">Search</button>
+                <div class="suggestion-container" id="suggestionContainer">
+                    <div class="suggestion-item" onclick="selectSuggestion('horror')">Horror</div>
+                    <div class="suggestion-item" onclick="selectSuggestion('comedy')">Comedy</div>
+                    <div class="suggestion-item" onclick="selectSuggestion('motivational')">Motivational</div>
+                    <div class="suggestion-item" onclick="selectSuggestion('stories')">Stories</div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="heading">
+        <a href="01.e-library css.html" class="btn">Back to Home</a>
+        <h1>Welcome to the E-Library </h1>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <img src="wallpaperflare.com_wallpaper (1).jpg" alt="Book 1" onclick="redirectToBook('book1')">
+            <img src="wallpaperflare.com_wallpaper (2).jpg" alt="Book 2" onclick="redirectToBook('book2')">
+            <img src="wallpaperflare.com_wallpaper (3).jpg" alt="Book 3" onclick="redirectToBook('book3')">
+            <img src="horror3.jpg" alt="Book 4" onclick="redirectToBook('book4')">
+            <img src="motivational3.jpg" alt="Book 5" onclick="redirectToBook('book5')">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

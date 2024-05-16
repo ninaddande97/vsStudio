@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Categories</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f8f8, #e0e0e0);
+            /* Gradient background */
+        }
+
+        header {
+            background: linear-gradient(135deg, #c31432, #240b36);
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .contain a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contain a:hover {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: black;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: black;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: linear-gradient(135deg, #c31432, #240b36);
+            color: white;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction:row; 
+            padding: 5px 0;
+            background: linear-gradient(135deg, #240b36, #c31432);
+            color: rgb(184, 12, 12);
+            margin-bottom: 20px;
+            text-align: center; /* Added */
+        }
+
+        .heading a {
+            margin-bottom: 10px; /* Added */
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            border: none;
+            color: rgb(179, 36, 36);
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .heading h1{
+          color: rgb(250, 246, 246);
+          text-align: center;
+          padding-inline-start: 420px;
+        }
+
+        .heading a:hover {
+            background: linear-gradient(135deg, #c31432, #240b36);
+        }
+
+        h1 {
+
+            color: rgb(161, 26, 26);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .category {
+            margin: 20px;
+            text-align: center;
+            cursor: pointer;
+            /* transition: transform 0.3s ease; */
+        }
+
+        .category img {
+            width: 250px;
+            height: 300px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+        }
+    </style>
+    <script>
+        // Function to navigate to a specific category page
+        function navigateToCategory(category) {
+            let page = '';
+
+            // Determine which category page to navigate to based on the category argument
+            switch (category) {
+                case 'horror':
+                    page = '03.book horror.html';
+                    break;
+                case 'comedy':
+                    page = '03.book comedy.html';
+                    break;
+                case 'stories':
+                    page = '03.book Stories.html';
+                    break;
+                case 'motivational':
+                    page = '03.book Motivational.html';
+                    break;
+                default:
+                    // If category is not recognized, do nothing
+                    return;
+            }
+
+            // Redirect to the determined page
+            window.location.href = page;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">INKWELL</div>
+            <div class="contain">
+                <a href="02.new home page css.html">Home</a>
+                <a href="03.book categories css.html">Book
+                    Categories</a>
+                <a href="04.contact us css.html">Contact Us</a>
+                <a href="05.About us css.html">About Us</a>
+                <a href="06.sign up css.html">Sign Up</a>
+                <a href="07.login css.html">Log In</a>
+
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <button>Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="heading">
+        <a href="01.e-library css.html" class="btn">Back to Home</a>
+        <h1>Book Categories</h1>
+    </div>
+
+    <div class="container">
+        <div class="category" onclick="navigateToCategory('horror')">
+            <img src="horror.jpg" alt="Horror Books">
+            <h2>Horror</h2>
+        </div>
+        <div class="category" onclick="navigateToCategory('comedy')">
+            <img src="comedy4.jpg" alt="Comedy Books">
+            <h2>Comedy</h2>
+        </div>
+        <div class="category" onclick="navigateToCategory('stories')">
+            <img src="Stories.jpg" alt="Stories Books">
+            <h2>Stories</h2>
+        </div>
+        <div class="category" onclick="navigateToCategory('motivational')">
+            <img src="Gemini_moti4.jpg" alt="Motivational Books">
+            <h2>Motivational</h2>
+        </div>
+    </div>
+
+</body>
+
+</html>
